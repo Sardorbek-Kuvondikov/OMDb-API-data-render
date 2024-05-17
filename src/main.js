@@ -4,7 +4,7 @@ const elForm = document.querySelector(".js-form"),
 const elRenderList = document.querySelector(".js-data-render");
 const elTemplate = document.querySelector(".js-template").content;
 
-let BASE_URL = `http://www.omdbapi.com/?apikey=7bdb534f&s=`;
+let BASE_URL = `https://www.omdbapi.com/?apikey=7bdb534f&s=`;
 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -12,6 +12,7 @@ elForm.addEventListener("submit", (evt) => {
   let selectValue = elSelect.value;
 
   let url = `${BASE_URL}${inputValue}`;
+
   if (selectValue !== "all") {
     url += `&type=${selectValue}`;
   }
