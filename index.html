@@ -4,9 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2-dars fetch XML</title>
+    <link rel="stylesheet" href="./src/output.css" />
   </head>
-  <body>
+  <body class="bg-[#0f172a]">
     <!-- OMDb API dan foydalanib kinolarni render qilish -->
-    
+    <div>
+      <div class="p-5 bg-[#0F172A] text-white border-b-2 border-[#3f4c61]">
+        <h1 class="pb-5 text-2xl text-center text-slate-300 font-medium">
+          What movies are you looking for?
+        </h1>
+        <div class="flex justify-between">
+          <div class="text-start">
+            <form class="flex items-center gap-5 js-form">
+              <input
+                class="p-3 w-[350px] rounded-sm bg-[#1E293B] placeholder:text-slate-400 js-input"
+                type="search"
+                placeholder="Search..."
+                aria-label="Search"
+                minlength="1"
+              />
+
+              <select class="p-[14px] rounded-sm bg-[#1e293b] js-select">
+                <option value="all">All</option>
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+              </select>
+
+              <button
+                class="p-3 rounded-sm bg-[#1e293b] text-slate-300 duration-500 active:scale-75"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-5 text-slate-300">
+        <ul
+          class="flex items-center flex-wrap justify-between gap-10 js-data-render"
+        ></ul>
+      </div>
+    </div>
+
+    <template class="js-template">
+      <li class="w-[250px] bg-slate-800 p-2 min-h-[500px]">
+        <img class="{w-full h-[300px]} js-img" src alt />
+        <h3 class="text-2xl p-2 text-center js-title">Spider-Man</h3>
+        <div class="flex justify-around mb-2">
+          <p>Type: <span class="js-type">movie</span>
+          </p>
+          <p>Year: <span class="js-year">2002</span></p>
+        </div>
+        <a class="text-blue-400 block text-center js-imdbid" href="#">imdbID</a>
+      </li>
+    </template>
+
+    <script src="./src/main.js"></script>
   </body>
 </html>
