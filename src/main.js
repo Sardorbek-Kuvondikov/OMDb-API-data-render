@@ -3,18 +3,19 @@ const elForm = document.querySelector(".js-form"),
   elSelect = elForm.querySelector(".js-select");
 const elRenderList = document.querySelector(".js-data-render");
 const elTemplate = document.querySelector(".js-template").content;
+
+let BASE_URL = `http://www.omdbapi.com/?apikey=7bdb534f&s=`;
+
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   let inputValue = elinput.value.trim();
   let selectValue = elSelect.value;
-  if (selectValue == "all") {
-    let BASE_URL = `http://www.omdbapi.com/?apikey=7bdb534f&s=${inputValue}`;
-    fetchData(BASE_URL, inputValue);
-  } else {
-    let BASE_URL = `http://www.omdbapi.com/?apikey=7bdb534f&s=${inputValue}&type=${selectValue}`;
-    fetchData(BASE_URL, inputValue);
+
+  let url = `${BASE_URL}${inputValue}`;
+  if (selectValue !== "all") {
+    url += `&type=${selectValue}`;
   }
-  //   elinput.value = "";
+  fetchData(url, inputValue);
 });
 
 async function fetchData(url, searchValue) {
