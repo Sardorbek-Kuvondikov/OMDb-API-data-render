@@ -1,3 +1,3 @@
-# 📘 AMDb API
+# 📘 OMDb API
 ```
 https://www.omdbapi.com/
